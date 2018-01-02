@@ -1,0 +1,69 @@
+@import url("base.css");
+.daohang{
+	width: 1226px;
+	height: 100px;
+	margin: 0 auto;
+	/*background: red;*/
+}
+.daohang-logo{
+	margin-top: 22.5px;
+	display: block;
+	float: left;
+	width: 55px;
+	height: 55px;
+	background: tomato;
+}
+.daohang ul{
+	float: left;
+	height: 100px;
+	line-height: 100px;
+	margin-left: 190px;
+}
+.daohang li{
+	float: left;
+	margin-left: 22px ;
+	
+}
+.daohang li a:hover{
+	color: #FF6700;
+}
+.daohang li:first-child{
+	margin-left: 0;
+}
+.daohang li a{
+	text-decoration: none;
+	color: #333333;
+	font-size: 14px;
+}
+
+.daohang .shousuo{
+	margin-top: 25px;
+	float: right;
+	width: 243px;
+	height: 48px;
+	border: 1px solid #e0e0e0;
+	border-right-width: 0 ;
+	box-sizing: border-box;
+	padding:10px;
+}
+.daohang .shousuo:focus {
+	outline:none;
+    border: 1px solid red;
+    border-right-width: 0;
+}
+.daohang .shousuoimg{
+	background:  url('../img/sousuo_03.png') no-repeat center center;
+	margin-top: 25px;
+	float: right;
+	width: 50px;
+	height: 46px;
+	border: 1px solid #e0e0e0;
+}
+.daohang .shousuoimg:hover{
+	background: url('../img/sousuo1.png');
+	border: 1px solid #ff6700;
+}
+.daohang .shousuo:focus .shousuoimg{
+	/*outline:none;*/
+    border: 1px solid red;
+}
