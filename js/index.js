@@ -32,7 +32,6 @@
 			
 		}
 		yuan.forEach(function(ele,index){
-			console.log(ele);
 			ele.onclick=function(){
 				list.style.marginLeft=-index*296+"px";
 				n=index;
@@ -43,7 +42,6 @@
 			for(let i=0;i<size;i++){
 				yuan[i].classList.remove("neirong-yuan2");
 			}
-			console.log(n);
 			yuan[n].classList.add("neirong-yuan2")
 		}
 	}
@@ -74,8 +72,6 @@
 	let yuan=document.querySelectorAll(".banner .banner-yuan li");
 	let left=document.querySelector("#banner-jiantou1");
 	let right=document.querySelector("#banner-jiantou2");
-	console.log(left)
-	console.log(right)
 	function lunbo(){
 		n++;
 		if(n==5){
@@ -110,5 +106,187 @@
 			n=index-1;
 			lunbo();
 		}
+	});
+}
+{
+	let big=document.querySelector("#danping-ul");
+	let list=document.querySelectorAll("#danping-ul li");
+	let right=document.querySelector(".danping .jiantou1");
+	let left=document.querySelector(".danping .jiantou2");
+	let n=0;
+	left.onclick=function(){
+		if(n==0){
+			return;
+		}
+		n=0;
+		big.style.marginLeft="0px";
+		left.style.color="";
+		left.style.fontWeight="normal";
+		right.style.color="#ccc";
+		right.style.fontWeight="bold";
+	}
+	right.onclick=function(){
+		if(n==1){
+			return;
+		}
+		n=1;
+		big.style.marginLeft="-1226px";
+		right.style.color="";
+		right.style.fontWeight="normal";
+		left.style.color="#ccc";
+		left.style.fontWeight="bold";
+	}
+	function move(){
+		if(n==0){
+			big.style.marginLeft="-1226px";
+			n=1;
+			right.style.color="";
+			right.style.fontWeight="normal";
+			left.style.color="#ccc";
+			left.style.fontWeight="bold";
+			return;
+		}
+		if(n==1){
+			n=0;
+			big.style.marginLeft="0px";
+			left.style.color="";
+			left.style.fontWeight="normal";
+			right.style.color="#ccc";
+			right.style.fontWeight="bold";
+		}
+	}
+	let time=setInterval(move,5000);
+	left.onmouseenter=()=>{
+		clearInterval(time);
+		if(n==1){
+			left.style.color="#FF8D40";
+		}
+	}
+	right.onmouseenter=()=>{
+		clearInterval(time);
+		if(n==0){
+			right.style.color="#FF8D40";
+		}
+	}
+	left.onmouseleave=right.onmouseleave=function(){
+		time=setInterval(move,5000);
+		left.style.color="";
+	}
+	right.onmouseleave=function(){
+		time=setInterval(move,5000);
+		right.style.color="";
+	}
+	
+}
+{
+	let list=document.querySelectorAll(".banner-daohang-ul1 li");
+	let list1=document.querySelectorAll(".banner .children");
+	let list2;
+	list.forEach(function(ele,index){
+		list1[index].onmouseenter=ele.onmouseenter=function(){ 
+			for(let i=0;i<list.length;i++){
+				list1[i].style.display="none";
+			}
+			list1[index].style.display="block";
+			list2=list1[index];
+		}
+		list1[index].onmouseleave=ele.onmouseleave=()=>{
+			list2.style.display="none";
+		}
+	});
+}
+{
+	let list1=document.querySelectorAll(".daohang-ul .figure img");
+	let list=document.querySelectorAll(".daohang-text li");
+	let info=document.querySelector(".header-nav-menu");
+	let width=document.querySelector(".header").offsetWidth;
+	info.style.width=width+"px";
+	info.style.left=-(width-1226)/2+"px";
+	list.forEach(function(ele,index){
+		ele.onmouseenter=()=>{
+			if(index==0||index==1||index==3||index==4||index==6||index==8){
+				info.style.height="229px";
+				for(let i=0;i<list1.length;i++){
+					list1[i].src="img/daohang/"+index+".png";
+				}
+			}
+			else{
+				info.style.height=0;
+			}
+		}
+		onmouseleave=ele.onmouseleave=()=>{
+			info.style.height=0;
+		}
+	});
+	info.onmouseenter=()=>{
+		info.style.height="229px";
+	}
+	info.onmouseleave=()=>{
+		info.style.height="0px";
+	}
+}
+{
+	let input=document.querySelector("#input");
+	let inputText=document.querySelector(".search-hot-words");
+	let div=document.querySelector(".keyword-list");
+	let img=document.querySelector(".shousuoimg");
+	input.onfocus=function(){
+		input.style.border="1px solid #ff6700";
+		input.style.borderRight="none";
+		inputText.style.display="none";
+		div.style.display="block";
+		img.style.border="1px solid #ff6700";
+	}
+	input.onblur=()=>{
+		input.style.border="";
+		input.style.borderRight="";
+		inputText.style.display="";
+		div.style.display="";
+		img.style.border="";
+	}
+}
+{
+	let n=true;
+	let big=$("#big");
+	big.children("div").css("text-align","center");
+	function move(){
+		if(n==true){
+			big.css("margin-left","-1226px");
+			console.log(btns[0]);
+			$(btns[1]).css("color","#B0B0B0").siblings().css("color","");
+		}
+		if(n==false){
+			big.css("margin-left","0");
+			$(btns[0]).css("color","#B0B0B0").siblings().css("color","");
+		}
+		n=!n;
+	}
+	let btns=$(".tuijian .jiantou");
+	btns.click(function(){
+		let index=$(this).index();
+		if(index===0){
+			$(btns[1]).css("color","#B0B0B0").siblings().css("color","");
+			big.css("margin-left","-1226px");
+			n=false;
+		}
+		if(index===1){
+			$(btns[0]).css("color","#B0B0B0").siblings().css("color","");
+			big.css("margin-left","0");
+			n=true;
+		}
+	});
+	let time=setInterval(move,5000);
+	btns.hover(function(ele){
+		clearInterval(time);
+		let index=$(this).index();
+		if(n==true){
+			$(btns[0]).css("color","#FF6700");
+		}
+		else{
+			$(btns[1]).css("color","#FF6700");
+		}
+	},function(ele){
+		$(this).css("color","");
+		time=setInterval(move,5000);
 	});
 }

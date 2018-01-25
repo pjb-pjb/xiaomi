@@ -52,12 +52,12 @@
 	height: 42px;
 	font-size: 12px;
 	color: #ffffff;
+	cursor: pointer;
 }
 .banner-daohang-ul1 li:hover{
 	background: #ff6700;
 }
 .banner-daohang-text1{
-	cursor: pointer;
 	font-size: 12px;
 	height: 100%;
 	line-height: 42px;
@@ -137,3 +137,57 @@
 .banner-yuan .style{
 	background: rgba(0,0,0,0);
 } 
+.banner .children{
+	display: none;
+	position: absolute;
+	left:234px;
+	top: 0;
+	z-index: 24;
+	height: 458px;
+	width: 992px;
+	border: 1px solid #E0E0E0;
+	border-left: 0;
+	background: #fff;
+	box-shadow: 0 8px 16px rgba(0,0,0,0.18);
+}
+.banner .children-col-3{
+	width: 795px;
+}
+.banner .children-col-2{
+	width: 530px;
+}
+.banner .children-col-1{
+	width: 265px;
+}
+.banner .children-list{
+	height: 458px;
+    margin: 0;
+    padding: 2px 0;
+    float: left;
+    width:248px;
+}
+.banner .children-list li{
+	position: relative;
+	float: left;
+	width: 265px;
+	height: 76px;
+}
+.banner .children-list li:hover a{
+	color: #FF8D40;
+}
+.banner .children-list li a{
+	display: block;
+	padding: 18px 20px;
+	line-height: 40px;
+	color: #333;
+	transition: color .2s;
+}
+.banner .children-list img{
+	width: 40px;
+    height: 40px;
+	margin-left: 12px;
+	vertical-align: middle;
+}
+.banner .children-list span{
+	line-height: 40px;
+}
